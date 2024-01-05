@@ -1,0 +1,29 @@
+ในการเรียกใช้ .sh คล้าย Bat ใน window ตัวอย่าง
+
+สร้างไฟล์
+1.nano helloworld.sh
+
+ใน helloworld.sh เติม Code นี้ลงไป
+#!/bin/bash
+echo "Hello, World!"
+# Save and exit (Ctrl+X, Y, Enter)
+
+
+2.chmod +x helloworld.sh 
+ทำให้ executable ได้
+
+
+
+การใช้ ./helloworld.sh และ bash helloworld.sh ในทางปฏิบัติจะมีความแตกต่างเล็กน้อยเกี่ยวกับวิธีที่ระบบปฏิบัติงาน.
+
+./helloworld.sh:
+
+./helloworld.sh หมายถึงการรันสคริปต์โดยตรงจากไฟล์ปัจจุบันที่คุณอยู่.
+./ หมายถึง "ที่อยู่ปัจจุบัน" หรือ "ไปที่ไฟล์นี้ในไดเรกทอรีปัจจุบันแล้วรัน."
+นั่นหมายความว่า, ไฟล์ต้องเป็น executable (chmod +x helloworld.sh) และถูกสั่งรันในที่อยู่ปัจจุบัน.
+bash helloworld.sh:
+
+bash helloworld.sh หมายถึงการใช้โปรแกรม bash มาทำการ interpret สคริปต์ที่ระบุ.
+สคริปต์ไม่จำเป็นต้องเป็น executable.
+นอกจากนี้, คุณสามารถใช้ sh helloworld.sh ก็ได้ (ถ้า bash อยู่ในที่อยู่ /bin/bash, ไม่ใช่ /bin/sh).
+สรุป, ./helloworld.sh มักจะใช้เมื่อคุณมีสคริปต์ที่เป็น executable และต้องการรันโดยตรงจากไดเรกทอรีปัจจุบัน, ในขณะที่ bash helloworld.sh สามารถใช้กับไฟล์ที่ไม่ได้ถูกกำหนดให้เป็น executable หรือเมื่อคุณต้องการให้โปรแกรม bash ทำการ interpret สคริปต์.

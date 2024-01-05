@@ -1,0 +1,24 @@
+หลังจาก สร้าง helloworld.sh  จะทำ Symbolink คล้าย ShortCut ใน Window       
+
+ตัวอย่างสร้าง Symbolink 
+ln -s ชื่อไฟล์ ชื่อตัวซิมโบลิค 
+
+Example
+ln -s file.sh symbolink.sh 
+
+
+Ex
+
+ตำแหน่งตอนนี้เป็น /<root> พิมพ์
+ln -s /foldertest/helloworld.sh linkhelloworld.sh
+
+
+/<root>
+|
+|------/foldertest/helloworld.sh
+|
+|------linkhelloworld.sh -> /foldertest/helloworld.sh
+
+/<root>
+bash linkhelloworld.sh
+จะได้ Hello,World!

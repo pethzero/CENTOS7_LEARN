@@ -1,0 +1,70 @@
+ในที่นี้ เราจะมาสร้าง 
+
+1.nano mklog.sh
+
+#!/bin/bash
+
+echo "Hello World" > log.txt
+echo "Success"
+
+2.chmod +x mklog.sh
+
+3.bash mklog.sh หรือ ./mklog.sh
+จะได้ File ที่ ถูกสร้าง Log.txt
+พร้อมข้อความ Terminal Log.txt
+
+./mklog.sh => จำเป็นต้อง chmod +x mklog.sh ก่อน
+
+5. สร้าง Symbolink
+ln -s /full/path/to/foldertest/mklog.sh /full/path/to/linkmklog.sh
+
+เลือกตำแหน่ง /<root> แล้วพิมพ์
+ln -s /foldertest/mklog.sh linkmklog.sh
+ตอนนี้ 
+/<root>
+|
+|------/foldertest/mklog.sh
+|
+|------> root -----linkmklog.sh -> /foldertest/mklog.sh
+
+ทดสอบ
+./linkmklog.sh
+
+bash linkmklog.sh
+
+
+6.
+crontab -e
+* * * * * 
+
+ทำ 
+crontab -e
+ทุกๆ 1 นาที
+* * * * * ./linkmklog.sh
+/<root>
+|
+|------/foldertest/mklog.sh
+|
+|------> root ------> _______linkmklog.sh -> /foldertest/mklog.sh
+|                     |
+|                     _______logxxxxx.txt
+|
+|-------linkmklog.sh -> /foldertest/mklog.sh
+
+
+!!!!!!!!!!!!!์NOTE!!!!!!!!!!!!!
+#!/bin/bash
+
+# Get current date and time in the desired format (YYYYMMDDHHMMSS)
+current_datetime=$(date +"%Y%m%d%H%M%S")
+
+# Create the log file name with the current_datetime
+log_filename="$log_${current_datetime}.txt"
+
+# Append content to the log file
+echo "Hello World $current_datetime" >> "$log_filename"
+echo "Success"
+
+
+์NOTE
+* * * * * /linkmklog.sh

@@ -1,0 +1,8 @@
+1.Create Folder
+mkdir foldertest
+
+1.Copy File
+cp backupfdbcen.sh backupfdb.sh
+
+2.Rename
+mv backupfdbcen.sh backupfdb.sh
