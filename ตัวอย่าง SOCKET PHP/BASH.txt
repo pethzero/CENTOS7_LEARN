@@ -1,0 +1,38 @@
+เมื่อคุณต้องการให้สคริปต์ Bash รันสคริปต์ PHP `/var/www/html/bin/chat-server.php` คำสั่งสคริปต์ที่คุณจะเขียนจะสั้นมาก คุณสามารถสร้างสคริปต์ Bash ดังนี้:
+
+1. เปิด Terminal บน CentOS 7.
+
+2. ใช้ตัวแก้รหัส (text editor) เช่น `nano` หรือ `vim` เพื่อสร้างสคริปต์ใหม่:
+
+   ```bash
+   nano run_chat_server.sh
+   ```
+
+3. ในเครื่องแก้รหัสที่เปิดขึ้นมา, เขียนคำสั่งเพื่อรันสคริปต์ PHP:
+
+   ```bash
+   #!/bin/bash
+   php /var/www/html/bin/chat-server.php
+   ```
+
+4. บันทึกและออกจากตัวแก้รหัส. ใน `nano`, กด `Ctrl + O`, ตามด้วย `Enter`, และจากนั้นกด `Ctrl + X`.
+
+5. ที่คุณต้องให้สสคริปต์สิทธิ์การรัน (execute permission):
+
+   ```bash
+   chmod +x run_chat_server.sh
+   ```
+
+6. คุณสามารถรันสคริปต์ Bash นี้โดยใช้:
+
+   ```bash
+   ./run_chat_server.sh
+   ```
+
+สคริปต์ `run_chat_server.sh` นี้จะรันสคริปต์ PHP `/var/www/html/bin/chat-server.php` โดยอัตโนมัติเมื่อคุณรัน `./run_chat_server.sh`. และคุณสามารถรันสคริปต์นี้เพื่อเปิด WebSocket server ทุกครั้งที่คุณต้องการให้มันทำงานหรือเปิดระบบของคุณ.
+
+
+
+
+
+

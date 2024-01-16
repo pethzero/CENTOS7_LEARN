@@ -1,0 +1,12 @@
+1.ใช้ตัวแก้รหัส (text editor) เช่น nano หรือ vim เพื่อสร้างสคริปต์ใหม่:
+nano run_server.sh
+
+2.ที่คุณต้องให้สสคริปต์สิทธิ์การรัน (execute permission):
+#!/bin/bash
+php /var/www/html/bin/server.php
+
+3.ที่คุณต้องให้สสคริปต์สิทธิ์การรัน (execute permission):
+chmod +x run_server.sh
+
+4.
+./run_server.sh

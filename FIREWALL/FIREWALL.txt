@@ -1,0 +1,58 @@
+To list the firewall rules and configurations in CentOS 7 using the `firewalld` service, you can use the `firewall-cmd` command with various options. Here are some useful commands to list firewall information:
+
+1. **List Zones:**
+   To list the available firewall zones, you can use the following command:
+
+   ```bash
+   sudo firewall-cmd --get-zones
+   ```
+
+2. **List All Configuration Details:**
+   To list all configuration details for the active zone, you can use the following command:
+
+   ```bash
+   sudo firewall-cmd --list-all
+   ```
+
+3. **List Services in the Active Zone:**
+   To list the services allowed in the active zone, use the following command:
+
+   ```bash
+   sudo firewall-cmd --list-services
+   ```
+
+4. **List Ports in the Active Zone:**
+   To list the ports allowed in the active zone, use the following command:
+
+   ```bash
+   sudo firewall-cmd --list-ports
+   ```
+
+5. **List All Rules in the Active Zone:**
+   To list all rules in the active zone, use the following command:
+
+   ```bash
+   sudo firewall-cmd --list-rich-rules
+   ```
+
+6. **List Zones with Detailed Information:**
+   To list all zones with detailed information, including active zones and interfaces associated with each zone, use the following command:
+
+   ```bash
+   sudo firewall-cmd --list-all-zones
+   ```
+
+7. **List Services and Ports in a Specific Zone:**
+   To list the services and ports allowed in a specific zone (e.g., the "public" zone), use the following command:
+
+   ```bash
+   sudo firewall-cmd --zone=public --list-services
+   ```
+
+   ```bash
+   sudo firewall-cmd --zone=public --list-ports
+   ```
+
+Remember to replace "public" with the name of the specific zone you want to inspect.
+
+These commands will provide you with information about the firewall configuration in CentOS 7, allowing you to check the rules and settings applied to your system.

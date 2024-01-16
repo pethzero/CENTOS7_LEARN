@@ -1,0 +1,61 @@
+หากคุณต้องการให้สคริปต์ PHP `/var/www/html/bin/chat-server.php` รันโดยอัตโนมัติทุกครั้งเมื่อเริ่มต้นระบบหรือรีบูต CentOS 7, คุณสามารถใช้ systemd เพื่อสร้างและกำหนดบริการ (service) สำหรับการรันสคริปต์นี้. นี่คือขั้นตอนที่คุณสามารถทำได้:
+
+1. **สร้างสคริปต์ .service**:
+   - เริ่มด้วยการสร้างไฟล์ข้อความเปล่าที่มีนามสกุล `.service` ใน `/etc/systemd/system/`:
+
+   ```
+   sudo nano /etc/systemd/system/chat-server.service
+   ```
+
+   แล้วในไฟล์ `.service` ใหม่เขียนข้อมูลต่อไปนี้:
+
+   ```
+   [Unit]
+   Description=Chat Server
+
+   [Service]
+   ExecStart=/usr/bin/php /var/www/html/bin/chat-server.php
+   WorkingDirectory=/var/www/html/bin
+   Restart=always
+
+   [Install]
+   WantedBy=multi-user.target
+   ```
+
+   ในส่วน `ExecStart`, คำสั่ง `/usr/bin/php /var/www/html/bin/chat-server.php` รันสคริปต์ PHP ที่คุณต้องการให้รัน. ตรวจสอบให้แน่ใจว่าเส้นทางไปยัง PHP ถูกต้อง.
+
+2. **รีโหลด systemd**:
+   - เมื่อคุณสร้างไฟล์ `.service`, ให้รีโหลด systemd เพื่อให้มันรับทราบการเปลี่ยนแปลง:
+
+   ```
+   sudo systemctl daemon-reload
+   ```
+
+3. **เปิดบริการให้เริ่มต้นเมื่อระบบเริ่มต้น**:
+   - ตั้งให้บริการของคุณเริ่มต้นเมื่อระบบเริ่มต้น:
+
+   ```
+   sudo systemctl enable chat-server
+   ```
+
+4. **รันบริการเดี๋ยวนี้**:
+   - ให้รันบริการของคุณเดี๋ยวนี้:
+
+   ```
+   sudo systemctl start chat-server
+   ```
+
+   WebSocket server จากสคริปต์ `chat-server.php` ควรเริ่มทำงานและเปิดการเชื่อมต่อ.
+
+5. **ตรวจสอบสถานะบริการ**:
+   - ตรวจสอบสถานะบริการเพื่อตรวจสอบว่าสคริปต์ `chat-server.php` ถูกรันโดย systemd:
+
+   ```
+   sudo systemctl status chat-server
+   ```
+
+   คุณควรเห็นข้อมูลเกี่ยวกับสถานะการทำงานของบริการ chat-server และให้แน่ใจว่าสคริปต์ทำงานอย่างถูกต้อง.
+
+เมื่อคุณเสร็จสรรพาสถานการณ์ บริการ `chat-server` จะถูกรันโดยอัตโนมัติทุกครั้งเมื่อระบบเริ่มต้นหรือรีบูต.
+
+

@@ -1,0 +1,25 @@
+ถ้าคุณได้ใช้ `systemctl` เพื่อสร้างบริการ (service) ชื่อ `chat-server` เพื่อรัน WebSocket server และต้องการปิดการใช้งาน WebSocket server โดยใช้ `systemctl`, คุณสามารถใช้คำสั่ง `systemctl` เพื่อหยุดบริการนี้ดังนี้:
+
+1. ใช้คำสั่ง `systemctl` เพื่อหยุดบริการ `chat-server`:
+
+```bash
+sudo systemctl stop chat-server
+```
+
+2. WebSocket server จะถูกหยุดการทำงานและบริการ `chat-server` จะถูกปิดใช้งาน.
+
+หากคุณต้องการปิดการใช้งานบริการ `chat-server` แบบถาวร (permanent), คุณสามารถทำได้ดังนี้:
+
+1. ใช้คำสั่ง `systemctl` เพื่อหยุดบริการ `chat-server`:
+
+```bash
+sudo systemctl stop chat-server
+```
+
+2. และหลังจากนั้นให้ปิดการใช้งานบริการเมื่อระบบเริ่มต้น:
+
+```bash
+sudo systemctl disable chat-server
+```
+
+บริการ `chat-server` จะไม่ถูกเริ่มต้นโดยอัตโนมัติเมื่อระบบเริ่มต้นหรือรีบูต.

@@ -1,0 +1,8 @@
+mysql -u root -p
+
+SHOW DATABASES;
+
+CREATE DATABASE SAN CHARACTER SET utf8 COLLATE utf8_general_ci;
+
+
+firewall-cmd --add-port 33061/tcp
